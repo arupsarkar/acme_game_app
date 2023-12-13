@@ -26,27 +26,27 @@ class GameModel: ObservableObject {
 
         switch scoreValue {
             case 0..<10:
-                return "Just starting out"
+                return "Just starting out" + " (" + String(scoreValue) + ")"
             case 10..<20:
-                return "Getting warmer"
+                return "Getting warmer" + " (" + String(scoreValue) + ")"
             case 20..<30:
-                return "Not bad!"
+                return "Not bad!" + " (" + String(scoreValue) + ")"
             case 30..<40:
-                return "Looking good!"
+                return "Looking good!" + " (" + String(scoreValue) + ")"
             case 40..<50:
-                return "Great job!"
+                return "Great job!" + " (" + String(scoreValue) + ")"
             case 50..<60:
-                return "Impressive!"
+                return "Impressive!" + " (" + String(scoreValue) + ")"
             case 60..<70:
-                return "Very impressive!"
+                return "Very impressive!" + " (" + String(scoreValue) + ")"
             case 70..<80:
-                return "Superb!"
+                return "Superb!" + " (" + String(scoreValue) + ")"
             case 80..<95:
-                return "Almost perfect!"
+                return "Almost perfect!" + " (" + String(scoreValue) + ")"
             case 95...100:
-                return "Nailed it!"
+                return "Nailed it!" + " (" + String(scoreValue) + ")"
             default:
-                return "Out of bounds"
+                return "Out of bounds" + " (" + String(scoreValue) + ")"
         }
     }
     

@@ -24,6 +24,9 @@
 		B73B520D234FA65F001B069B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B520C234FA65F001B069B /* SceneDelegate.swift */; };
 		B77BD8A321125B510036B284 /* bootconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B77BD8A221125B510036B284 /* bootconfig.plist */; };
 		CEA8CA041F071B2300448B51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA8CA031F071B2300448B51 /* Images.xcassets */; };
+		E241E74C2B290792000A4534 /* SalesOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241E74B2B290792000A4534 /* SalesOrderModel.swift */; };
+		E241E7502B295796000A4534 /* HardwareImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241E74F2B295796000A4534 /* HardwareImageViewModel.swift */; };
+		E241E7522B295809000A4534 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241E7512B295809000A4534 /* AsyncImageView.swift */; };
 		E2EDA7A52B26C708002B2ECA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EDA7A42B26C708002B2ECA /* GameModel.swift */; };
 		E2EDA7A72B26C88E002B2ECA /* ColorGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EDA7A62B26C88E002B2ECA /* ColorGameView.swift */; };
 		E2EDA7A92B277F58002B2ECA /* BottomNavigationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EDA7A82B277F58002B2ECA /* BottomNavigationTabView.swift */; };
@@ -55,6 +58,9 @@
 		B77BD8A221125B510036B284 /* bootconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bootconfig.plist; sourceTree = "<group>"; };
 		CEA8CA031F071B2300448B51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		CF37FBFE0F49A601E0674A99 /* Pods_acme_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_acme_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E241E74B2B290792000A4534 /* SalesOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesOrderModel.swift; sourceTree = "<group>"; };
+		E241E74F2B295796000A4534 /* HardwareImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareImageViewModel.swift; sourceTree = "<group>"; };
+		E241E7512B295809000A4534 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		E2EDA7A42B26C708002B2ECA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		E2EDA7A62B26C88E002B2ECA /* ColorGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameView.swift; sourceTree = "<group>"; };
 		E2EDA7A82B277F58002B2ECA /* BottomNavigationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationTabView.swift; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 				E2EDA7A82B277F58002B2ECA /* BottomNavigationTabView.swift */,
 				E2EDA7AA2B27805C002B2ECA /* MerchandiseView.swift */,
 				E2EDA7B02B27A404002B2ECA /* UnifiedProfileView.swift */,
+				E241E7512B295809000A4534 /* AsyncImageView.swift */,
 			);
 			name = SwiftUI;
 			sourceTree = "<group>";
@@ -107,6 +114,8 @@
 				4F13E93A237DD5D9005BCAE9 /* ContactDetailModel.swift */,
 				E2EDA7A42B26C708002B2ECA /* GameModel.swift */,
 				E2EDA7AE2B278BB4002B2ECA /* UnifiedProfileModel.swift */,
+				E241E74B2B290792000A4534 /* SalesOrderModel.swift */,
+				E241E74F2B295796000A4534 /* HardwareImageViewModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -300,8 +309,10 @@
 				B73B520D234FA65F001B069B /* SceneDelegate.swift in Sources */,
 				4FD6C47A1B754AF1002F9F90 /* AppDelegate.swift in Sources */,
 				4F13E93B237DD5D9005BCAE9 /* ContactDetailsView.swift in Sources */,
+				E241E74C2B290792000A4534 /* SalesOrderModel.swift in Sources */,
 				E2EDA7A92B277F58002B2ECA /* BottomNavigationTabView.swift in Sources */,
 				E2EDA7AB2B27805C002B2ECA /* MerchandiseView.swift in Sources */,
+				E241E7502B295796000A4534 /* HardwareImageViewModel.swift in Sources */,
 				4F13E947237DD72E005BCAE9 /* AccountsListModel.swift in Sources */,
 				4F13E93C237DD5D9005BCAE9 /* ContactsForAccountModel.swift in Sources */,
 				4F13E93F237DD5D9005BCAE9 /* ContactDetailModel.swift in Sources */,
@@ -310,6 +321,7 @@
 				4F13E93E237DD5D9005BCAE9 /* AccountsListView.swift in Sources */,
 				E2EDA7B12B27A404002B2ECA /* UnifiedProfileView.swift in Sources */,
 				4F393A291C3C8BCD00B3EA13 /* main.swift in Sources */,
+				E241E7522B295809000A4534 /* AsyncImageView.swift in Sources */,
 				4FD6C4A01B755242002F9F90 /* InitialViewController.swift in Sources */,
 				E2EDA7A72B26C88E002B2ECA /* ColorGameView.swift in Sources */,
 				E2EDA7A52B26C708002B2ECA /* GameModel.swift in Sources */,

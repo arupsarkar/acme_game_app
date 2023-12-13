@@ -126,13 +126,13 @@ struct ColorView: View {
 
 struct WeatherWidget: View {
     // Mockup data - replace with real data from a weather API
-    let temperature = "21°C"
-    let weatherDescription = "Partly Cloudy"
+    let temperature = "$10"
+    let weatherDescription = "Valid till Jan 31st 2024"
     let icon = "cloud.sun.fill" // SF Symbol for partly cloudy weather
 
     var body: some View {
         GroupBox(
-                    label: Text("Today's Weather")
+                    label: Text("Your promotions")
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.top, 5)
