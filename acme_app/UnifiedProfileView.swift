@@ -22,7 +22,7 @@ struct UnifiedProfileView: View {
             } else if let userData = viewModel.userData {
                 Text("Name: \(userData[0].FirstName) \(userData[0].LastName)")
                 List(userData, id: \.UnifiedId) { user in
-                    VStack(alignment: .center, spacing: 10) {
+                    VStack(alignment: .center, spacing: 5) {
                         Text("\(user.FirstName) \(user.LastName)")
                             .font(.headline)
                             .padding(.top)
@@ -45,30 +45,53 @@ struct UnifiedProfileView: View {
                                 .padding(.bottom, 10)
                         }
                         
-                        GroupBox(label: Text("Phones")) {
+                        GroupBox(
+                            label: Text("Phones")
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        ) {
                             ForEach(user.Phones, id: \.Phone) { phone in
-                                Text(phone.Phone)
-                                    .padding(.vertical, 2)
+                                HStack {
+                                    Label(phone.Phone.dropFirst().dropLast(), systemImage: "phone")
+                                }
+                                .padding(.vertical, 2)
+                                
+
                             }
                         }
                         
-                        GroupBox(label: Text("Emails")) {
+                        GroupBox(
+                            label: Text("Emails")
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        ) {
                             ForEach(user.Emails, id: \.Email) { email in
-                                Text(email.Email)
-                                    .padding(.vertical, 2)
+                                
+                                HStack {
+                                    Label(email.Email.dropFirst().dropLast(), systemImage: "envelope")
+                                        .padding(.leading)
+                                }
+                                .padding(.vertical, 2)
                             }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
+                    // consent data
+                    GroupBox(
+                        label: Text("Consent Data")
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+                    ) {
+                        ConsentDataView()
+                    }
                 }
             } else if let errorMessage = viewModel.errorMessage {
                 Text("Error: \(errorMessage)")
             }
             
+
+            
             Button(action: {
                 viewModel.fetchUnifiedProfileData()
             }) {
-                Text("Refresh Data")
+                Text(viewModel.buttonText)
                     .fontWeight(.bold)
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .padding()
@@ -77,6 +100,7 @@ struct UnifiedProfileView: View {
                     .cornerRadius(40)
                     .padding(.horizontal)
             }
+            .disabled(viewModel.isLoading)
 
         }
 //        .onAppear {

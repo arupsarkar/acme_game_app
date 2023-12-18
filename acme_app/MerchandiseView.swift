@@ -41,13 +41,13 @@ struct MerchandiseView: View {
                 VStack {
                     HStack{
                         AsyncImageView(url: URL(string: "https://source.unsplash.com/random/300x300?computer")!,imageSize: 50)
-                        Spacer()
+                            .padding(.trailing)
                         Text("Starter Kit")
-                            .frame(alignment: .leading)
-                        Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 15))
                         Text("$12.99")
-                            .frame(alignment: .trailing)
-                        Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 15))
                         Button(action: {
                             // Action for the button
                             print("Buy button tapped")
@@ -63,13 +63,13 @@ struct MerchandiseView: View {
 
                     HStack {
                         AsyncImageView(url: URL(string: "https://source.unsplash.com/random/300x300?computer")!,imageSize: 50)
-                        Spacer()
+                            .padding(.trailing)
                         Text("Energy Meter")
-                            .frame(alignment: .leading)
-                        Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 15))
                         Text("$89.99")
-                            .frame(alignment: .trailing)
-                        Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 15))
                         Button(action: {
                             // Action for the button
                             print("Buy button tapped")
@@ -85,12 +85,13 @@ struct MerchandiseView: View {
 
                     HStack {
                         AsyncImageView(url: URL(string: "https://source.unsplash.com/random/300x300?computer")!,imageSize: 50)
-                        Spacer()
+                            .padding(.trailing)
                         Text("GPU Graphic Memory(RAM)")
-                            .frame(alignment: .leading)
-                        Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 15))
                         Text("$169.99")
-                            .frame(alignment: .trailing)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 15))
                         Spacer()
                         Button(action: {
                             // Action for the button
@@ -120,9 +121,16 @@ struct MerchandiseView: View {
                     VStack {
                             HStack {
                                 AsyncImageView(url: URL(string: "https://source.unsplash.com/random/300x300?computer")!,imageSize: 50)
+                                    .padding(.trailing)
                                 Text(dataItem.Name ?? "")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.system(size: 15))
                                 Text(dataItem.Name__c ?? "")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.system(size: 15))
                                 Text(formatAsCurrency(Decimal(dataItem.GrandTotalAmount__c ?? 0.00)))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.system(size: 15))
                             }
 
                         }

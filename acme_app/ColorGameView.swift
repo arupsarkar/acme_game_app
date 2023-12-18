@@ -63,8 +63,9 @@ struct ColorGameView: View {
 
                 Button(action: {
                     game.newRound()
-                }) {
-                    Text("New Round")
+                })
+                {
+                    Text(game.buttonText)
                         .fontWeight(.bold)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding()
@@ -73,7 +74,8 @@ struct ColorGameView: View {
                         .cornerRadius(40)
                         .padding(.horizontal)
                 }
-
+                .disabled(game.isRequestInProgress)
+                
                 Text("Score: \(game.score)")
                     .font(.headline)
                 
@@ -129,7 +131,7 @@ struct WeatherWidget: View {
     let temperature = "$10"
     let weatherDescription = "Valid till Jan 31st 2024"
     let icon = "cloud.sun.fill" // SF Symbol for partly cloudy weather
-
+    
     var body: some View {
         GroupBox(
                     label: Text("Your promotions")

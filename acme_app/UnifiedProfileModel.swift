@@ -59,6 +59,7 @@ class UnifiedProfileViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var result: String?
     @Published var userData: [User]?
+    @Published var buttonText = "Refresh Data"
     
     var store: SmartStore?
     
@@ -68,7 +69,11 @@ class UnifiedProfileViewModel: ObservableObject {
     }
     
     func fetchUnifiedProfileData() {
-        isLoading = true
+        DispatchQueue.main.async {
+            self.isLoading = true
+            self.buttonText = "Request in progress.."
+        }
+//        isLoading = true
         errorMessage = nil
         let accessToken = UserAccountManager.shared.currentUserAccount?.credentials.accessToken
         let instanceURL = UserAccountManager.shared.currentUserAccount?.credentials.instanceUrl
@@ -78,7 +83,7 @@ class UnifiedProfileViewModel: ObservableObject {
 
         let baseURL = "https://tinkerlab-sdo-cdp.my.salesforce.com"
         let path = "/services/apexrest/unifiedprofile/" + "2c1b2a8da0a7c6232f758c8a79eb3060"
-        let apexResourcePath = "https://tinkerlab-sdo-cdp.my.salesforce.com/services/apexrest/unifiedprofile/" + "2c1b2a8da0a7c6232f758c8a79eb3060"
+//        let apexResourcePath = "https://tinkerlab-sdo-cdp.my.salesforce.com/services/apexrest/unifiedprofile/" + "2c1b2a8da0a7c6232f758c8a79eb3060"
 
         let request = RestRequest.customUrlRequest(with: .GET, baseURL: baseURL, path: path, queryParams: nil)
         request.setHeaderValue("Bearer " + accessToken!, forHeaderName: "Authorization")
@@ -90,7 +95,7 @@ class UnifiedProfileViewModel: ObservableObject {
         print("-------- request End ----------")
         
         RestClient.shared.send(request: request, { [weak self] (result) in
-            self?.isLoading = false
+
             switch result {
             case .success( let response ):
                 print(result)
@@ -102,9 +107,17 @@ class UnifiedProfileViewModel: ObservableObject {
                     self?.userData = try JSONDecoder().decode([User].self, from: response.asData())
                     print(self?.userData?[0].FirstName as Any)
                     print(self?.userData?[0].LastName as Any)
-                    // Now 'users' is an array of 'User' structs populated with your JSON data
+                    DispatchQueue.main.async {
+                        self?.isLoading = false
+                        self?.buttonText = "Refresh Data"
+                    }
+                    
                 } catch {
                     print("Error decoding JSON: \(error)")
+                    DispatchQueue.main.async {
+                        self?.isLoading = false
+                        self?.buttonText = "Refresh Data"
+                    }
                 }
                 print("-------- response End ----------")
             case .failure( let error ):
